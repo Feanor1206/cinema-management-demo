@@ -7,7 +7,7 @@ flowchart LR
   SQL --> DB[(SQLite)]
 ```
 
-`web/` chứa từng màn hình và một API client dùng chung. `shared/contracts.ts` định nghĩa dữ liệu trao đổi; `server/app.ts` tổ chức route, kiểm tra quyền và nghiệp vụ, `server/db.ts` tạo bảng và dữ liệu mẫu. Không có lớp trung gian chỉ để chuyển tiếp tham số.
+`web/` chứa các màn hình và hàm gọi API dùng chung. `shared/contracts.ts` định nghĩa dữ liệu trao đổi; `server/app.ts` tổ chức route, kiểm tra quyền và xử lý nghiệp vụ; `server/db.ts` tạo bảng và dữ liệu mẫu.
 
 Giao dịch bán và trả vé dùng transaction. Ràng buộc ghế theo suất trong CSDL chặn ghi trùng; dữ liệu giá, ưu đãi và điểm của vé được giữ tại thời điểm bán. Trả vé ghi khoản hoàn riêng, giúp báo cáo theo ngày bán và ngày hoàn chính xác. Truy vấn báo cáo dùng khoảng UTC tương ứng ngày Việt Nam và chỉ mục thời gian; xem chi tiết không truy vấn lặp theo từng hóa đơn.
 
